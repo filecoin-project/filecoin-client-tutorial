@@ -1,0 +1,19 @@
+{
+  "name": "filecoin-client-tutorial",
+  "version": "0.0.1",
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "dev": "node .",
+    "build": "next build",
+    "start": "NODE_ENV=production node ."
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "express": "^4.17.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  }
+}

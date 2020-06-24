@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "transform-runtime": {
+          "useESModules": false
+        }
+      }
+    ],
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "~": "./"
+      }
+    }]
+  ]
+}
