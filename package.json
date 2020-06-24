@@ -5,9 +5,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "dev": "node .",
-    "build": "next build",
-    "start": "NODE_ENV=production node ."
+    "start": "node .",
   },
   "dependencies": {
     "@babel/preset-env": "^7.9.0",
