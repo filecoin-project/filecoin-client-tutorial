@@ -48,7 +48,55 @@ Run these commands to start the client locally.
 git clone git@github.com:filecoin-project/filecoin-client-tutorial.git
 cd filecoin-client-tutorial
 npm install
+```
+
+## Create a server.js file
+```sh
+//import express server
+import express from "express";
+
+import fs from "fs"
+import { ffs, createPow } from "@textile/powergate-client"
+
+const pow = createPow({ host:"http://0.0.0.0:6002" })
+const server = express();
+
+server.listen(8080, async () => {
+
+  //create a new FFS instance.
+  const { token } = await pow.ffs.create()
+  console.log({token});
+
+  //set the auth token that the Powergate client to use.
+  pow.setToken(token)
+
+  // cache data in IPFS in preparation to store it using FFS
+  const { cid } = await pow.ffs.addToHot(buffer)
+  console.log({cid});
+  const buffer = fs.readFileSync(`dog.jpg`)
+
+  // store the data in FFS using the default storage configuration
+  const { jobId } = await pow.ffs.pushConfig(cid)
+  console.log({jobId});
+
+  // watch the FFS job status to see the storage process progressing
+  const cancel = pow.ffs.watchJobs((job) => {
+    console.log({job})
+    if (job.status === ffs.JobStatus.CANCELED) {
+      console.log("job canceled")
+    } else if (job.status === ffs.JobStatus.FAILED) {
+      console.log("job failed")
+    } else if (job.status === ffs.JobStatus.SUCCESS) {
+      console.log("job success!")
+    }
+  }, jobId);
+});
+```
+
+```sh
 npm run dev
 ```
+
+
 
 Go to the [Filecoin Client](https://github.com/filecoin-project/filecoin-client/) to see the full end to end application.
