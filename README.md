@@ -51,6 +51,9 @@ npm install
 ```
 
 ## Create a server.js file
+
+The main API you'll interact with is the Filecoin File System (FFS).
+
 ```sh
 //import express server
 import express from "express";
