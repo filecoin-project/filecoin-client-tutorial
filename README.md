@@ -96,10 +96,6 @@ server.listen(8080, async () => {
 });
 ```
 
-```sh
-npm run dev
-```
-
-
+- Run `node .`
 
 Go to the [Filecoin Client](https://github.com/filecoin-project/filecoin-client/) to see the full end to end application.
