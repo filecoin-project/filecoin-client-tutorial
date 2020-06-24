@@ -52,7 +52,7 @@ npm install
 
 ## Create a server.js file
 
-The main API you'll interact with is the Filecoin File System (FFS).
+The main API you will interact with is the Filecoin File System (FFS).
 
 ```sh
 //import express server
@@ -99,3 +99,7 @@ server.listen(8080, async () => {
 - Run `node .`
 
 Go to the [Filecoin Client](https://github.com/filecoin-project/filecoin-client/) to see the full end to end application.
+
+## References
+- https://blog.textile.io/integrating-powergate/
+- https://github.com/textileio/js-powergate-client
